@@ -38,58 +38,70 @@ const GiftSection = () => {
 
   return (
     <section className="section-padding text-center relative overflow-hidden">
+      {/* Section Header */}
       <motion.div
-        initial={{ opacity: 0, y: 15 }}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="max-w-sm mx-auto relative z-10"
+        transition={{ duration: 0.7 }}
+        className="text-center mb-10 relative z-10"
       >
-        {/* Title */}
         <p className="font-wedding-name text-2xl sm:text-3xl text-gold font-normal mb-1">
           Tanda Kasih
         </p>
-        <h2 className="text-lg text-primary font-semibold mb-2">Kirim Hadiah</h2>
-        <div className="w-10 h-px bg-gold/30 mx-auto mb-8" />
-        
-        <div className="space-y-4">
+        <h2 className="text-lg text-primary font-semibold">Kirim Hadiah</h2>
+        <div className="flex items-center justify-center gap-2 mt-3">
+          <div className="h-px w-10 bg-gold/30" />
+          <span className="text-gold/60 text-[10px]">🎁</span>
+          <div className="h-px w-10 bg-gold/30" />
+        </div>
+      </motion.div>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-lg md:max-w-3xl mx-auto relative z-10">
           {giftAccounts.map((account, idx) => (
             <motion.div
               key={idx}
-              initial={{ y: 15, opacity: 0 }}
+              initial={{ y: 30, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.15, duration: 0.6 }}
-              className="bg-white rounded-2xl shadow-sm border border-primary/8 p-5 flex flex-col items-center"
+              className="rounded-xl overflow-hidden shadow-md shadow-primary/8 bg-white border border-primary/5"
             >
-              {/* Official Bank Logo from public/ */}
-              <div className="mb-4 flex items-center justify-center h-9">
-                {getBankLogo(account.bank)}
+              {/* Card Header */}
+              <div className="bg-primary/5 px-6 py-4 border-b border-primary/5 flex items-center justify-between">
+                 <div className="h-8 flex items-center">
+                    {getBankLogo(account.bank)}
+                 </div>
+                 <span className="text-xl">💳</span>
               </div>
 
-              {/* Account Number Box */}
-              <div className="w-full bg-primary/4 rounded-xl border border-primary/8 py-3.5 px-4 mb-3.5 text-center">
-                <p className="text-base font-semibold text-primary tracking-wider mb-0.5 font-mono">
-                  {account.number}
-                </p>
-                <p className="text-[11px] text-primary/50 font-medium">
-                  a.n {account.holder}
-                </p>
-              </div>
+              {/* Card Body */}
+              <div className="p-6 flex flex-col items-center">
+                
+                {/* Account Number Box */}
+                <div className="w-full bg-gradient-to-br from-primary/5 to-transparent rounded-xl border border-primary/10 py-4 px-5 mb-5 text-center relative overflow-hidden">
+                  <div className="absolute -right-4 -bottom-4 w-16 h-16 bg-primary/5 rounded-full blur-xl" />
+                  <p className="text-lg font-bold text-primary tracking-widest mb-1 font-mono">
+                    {account.number}
+                  </p>
+                  <p className="text-xs text-primary/60 font-medium">
+                    a.n {account.holder}
+                  </p>
+                </div>
 
-              {/* Copy Button */}
-              <motion.button
-                whileTap={{ scale: 0.97 }}
-                onClick={() => copyToClipboard(account.number)}
-                className="inline-flex items-center gap-1.5 px-5 py-2 bg-primary text-white rounded-xl text-xs font-semibold shadow-sm shadow-primary/10 hover:bg-primary-light transition-all cursor-pointer"
-              >
-                {copied === account.number ? <Check size={13} /> : <Copy size={13} />}
-                <span>{copied === account.number ? "Nomor Tersalin" : "Salin No. Rekening"}</span>
-              </motion.button>
+                {/* Copy Button */}
+                <motion.button
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => copyToClipboard(account.number)}
+                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white rounded-lg text-[13px] font-semibold shadow-md shadow-primary/20 hover:bg-primary/90 transition-all cursor-pointer active:scale-95"
+                >
+                  {copied === account.number ? <Check size={14} className="text-green-300" /> : <Copy size={14} />}
+                  <span>{copied === account.number ? "Berhasil Disalin!" : "Salin No. Rekening"}</span>
+                </motion.button>
+              </div>
             </motion.div>
           ))}
-        </div>
-      </motion.div>
+      </div>
     </section>
   );
 };

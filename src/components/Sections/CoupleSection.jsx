@@ -39,10 +39,14 @@ const CoupleSection = () => {
         <p className="font-wedding-name text-3xl text-gold font-normal mb-1">
           Assalamu’alaikum Wr. Wb.
         </p>
-        <h2 className="text-lg text-primary font-semibold mb-2">
+        <h2 className="text-lg text-primary font-semibold">
           Keluarga &amp; Sahabat Tercinta
         </h2>
-        <div className="w-10 h-px bg-gold/30 mx-auto mb-6" />
+        <div className="flex items-center justify-center gap-2 mt-3 mb-6">
+          <div className="h-px w-10 bg-gold/30" />
+          <span className="text-gold/60 text-[10px]">🌿</span>
+          <div className="h-px w-10 bg-gold/30" />
+        </div>
 
         {/* Intro */}
         <p className="text-primary/60 text-xs leading-relaxed mb-8 px-2">

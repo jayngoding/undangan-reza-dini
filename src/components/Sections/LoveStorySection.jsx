@@ -22,7 +22,11 @@ const LoveStorySection = () => {
             Perjalanan Kami
           </p>
           <h2 className="text-lg text-primary font-semibold">Kisah Cinta</h2>
-          <div className="w-10 h-px bg-gold/30 mx-auto mt-2" />
+          <div className="flex items-center justify-center gap-2 mt-3">
+            <div className="h-px w-10 bg-gold/30" />
+            <span className="text-gold/60 text-[10px]">📖</span>
+            <div className="h-px w-10 bg-gold/30" />
+          </div>
         </motion.div>
 
         {/* Timeline */}
@@ -40,7 +44,7 @@ const LoveStorySection = () => {
               <div className="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-white border-2 border-primary/30" />
 
               {/* Card */}
-              <div className="ml-6 bg-white rounded-lg border border-primary/6 shadow-sm p-4 w-full text-left">
+              <div className="ml-6 bg-white rounded-xl border border-primary/5 shadow-md shadow-primary/5 p-5 w-full text-left">
                 <span className="inline-block px-2 py-0.5 rounded bg-primary/8 text-primary font-medium text-[10px] mb-1.5">
                   {story.date}
                 </span>

@@ -88,53 +88,60 @@ const RSVPSection = ({ guestName = '' }) => {
         transition={{ duration: 0.8 }}
         className="max-w-md mx-auto relative z-10"
       >
-        {/* Title */}
-        <div className="text-center mb-8">
+        {/* Section Header */}
+        <div className="text-center mb-10 relative z-10">
           <p className="font-wedding-name text-2xl sm:text-3xl text-gold font-normal mb-1">
             Kehadiran &amp; Doa
           </p>
           <h2 className="text-lg text-primary font-semibold">Konfirmasi Kehadiran</h2>
-          <div className="w-10 h-px bg-gold/30 mx-auto mt-2" />
+          <div className="flex items-center justify-center gap-2 mt-3">
+            <div className="h-px w-10 bg-gold/30" />
+            <span className="text-gold/60 text-[10px]">💌</span>
+            <div className="h-px w-10 bg-gold/30" />
+          </div>
         </div>
 
         {/* Form Card */}
-        <div className="bg-white rounded-xl shadow-sm border border-primary/6 p-5 mb-8">
-          <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="bg-white rounded-xl shadow-md shadow-primary/8 border border-primary/5 p-6 mb-10 relative overflow-hidden">
+          {/* Subtle background decoration */}
+          <div className="absolute -top-10 -right-10 w-32 h-32 bg-primary/5 rounded-full blur-2xl" />
+          
+          <form onSubmit={handleSubmit} className="space-y-5 relative z-10">
             {/* Name */}
-            <div className="relative">
-              <User size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-primary/30" />
+            <div className="relative group">
+              <User size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-primary/30 group-focus-within:text-gold transition-colors" />
               <input
                 type="text" 
                 required 
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                placeholder="Nama lengkap Anda"
-                className="w-full py-3 pl-9 pr-4 bg-primary/3 border border-primary/8 rounded-lg text-xs focus:outline-none focus:ring-1 focus:ring-gold/30 focus:border-gold/30 text-primary placeholder:text-primary/25 transition-all font-medium"
+                placeholder="Nama Lengkap Anda"
+                className="w-full py-3.5 pl-11 pr-4 bg-primary/3 border border-primary/10 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold/30 text-primary placeholder:text-primary/30 transition-all font-medium"
               />
             </div>
  
             {/* Attendance */}
-            <div className="relative">
-              <Users2 size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-primary/30 z-10 pointer-events-none" />
+            <div className="relative group">
+              <Users2 size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-primary/30 z-10 pointer-events-none group-focus-within:text-gold transition-colors" />
               <select
                 required value={formData.attendance}
                 onChange={(e) => setFormData({ ...formData, attendance: e.target.value })}
-                className="w-full py-3 pl-9 pr-8 bg-primary/3 border border-primary/8 rounded-lg text-xs focus:outline-none focus:ring-1 focus:ring-gold/30 appearance-none cursor-pointer text-primary transition-all"
+                className="w-full py-3.5 pl-11 pr-10 bg-primary/3 border border-primary/10 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-gold/30 appearance-none cursor-pointer text-primary transition-all font-medium"
               >
-                <option value="Hadir">Hadir</option>
-                <option value="Tidak Hadir">Berhalangan Hadir</option>
+                <option value="Hadir">✨ Ya, Saya Akan Hadir</option>
+                <option value="Tidak Hadir">🙏 Maaf, Berhalangan Hadir</option>
               </select>
-              <svg className="absolute right-3 top-1/2 -translate-y-1/2 text-primary/25 pointer-events-none" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              <svg className="absolute right-4 top-1/2 -translate-y-1/2 text-primary/30 pointer-events-none" width="12" height="7" viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
             </div>
  
             {/* Message */}
-            <div className="relative">
-              <MessageSquare size={14} className="absolute left-3 top-4 text-primary/30" />
+            <div className="relative group">
+              <MessageSquare size={16} className="absolute left-4 top-4 text-primary/30 group-focus-within:text-gold transition-colors" />
               <textarea
                 required rows="3" value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                placeholder="Tuliskan ucapan & doa restu"
-                className="w-full py-3 pl-9 pr-4 bg-primary/3 border border-primary/8 rounded-lg text-xs focus:outline-none focus:ring-1 focus:ring-gold/30 resize-none text-primary placeholder:text-primary/25 transition-all"
+                placeholder="Tuliskan ucapan selamat & doa restu..."
+                className="w-full py-3.5 pl-11 pr-4 bg-primary/3 border border-primary/10 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-gold/30 resize-none text-primary placeholder:text-primary/30 transition-all font-medium"
               />
             </div>
 
@@ -144,17 +151,17 @@ const RSVPSection = ({ guestName = '' }) => {
             </div>
 
             <motion.button
-              whileTap={{ scale: 0.97 }}
+              whileTap={{ scale: 0.95 }}
               type="submit" 
               disabled={isSubmitting}
-              className="w-full py-2.5 bg-primary text-white rounded-lg font-medium text-xs shadow-sm flex items-center justify-center gap-2 transition-all cursor-pointer"
+              className="w-full py-3 bg-gradient-to-r from-primary to-[#A83232] text-white rounded-lg font-semibold text-[13px] shadow-md shadow-primary/20 flex items-center justify-center gap-2 hover:opacity-90 transition-all cursor-pointer active:scale-95"
             >
               {isSubmitting ? (
-                <div className="w-4 h-4 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+                <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
               ) : (
                 <>
-                  <Send size={12} />
-                  <span>Kirim Ucapan</span>
+                  <Send size={16} />
+                  <span>Kirim Pesan</span>
                 </>
               )}
             </motion.button>
@@ -172,44 +179,53 @@ const RSVPSection = ({ guestName = '' }) => {
         </div>
 
         {/* Messages */}
-        <div className="text-left">
-          <div className="flex items-center justify-between mb-4 pb-3 border-b border-primary/6">
-            <h3 className="text-sm text-primary font-semibold">Untaian Doa</h3>
-            <span className="px-2.5 py-1 bg-primary/5 text-primary border border-primary/8 rounded-lg text-[10px] font-medium">
-              {messages.length} pesan
+        <div className="text-left bg-white/60 p-6 rounded-xl border border-primary/5 shadow-sm">
+          <div className="flex items-center justify-between mb-5 pb-4 border-b border-primary/10">
+            <div className="flex items-center gap-2">
+               <h3 className="text-base text-primary font-bold">Untaian Doa</h3>
+               <span className="text-sm">💬</span>
+            </div>
+            <span className="px-3 py-1 bg-gold/10 text-gold border border-gold/20 rounded-full text-xs font-bold">
+              {messages.length} Pesan
             </span>
           </div>
  
-          <div className="space-y-3 max-h-[400px] overflow-y-auto pr-1 custom-scrollbar">
+          <div className="space-y-3 max-h-[320px] overflow-y-auto pr-2 custom-scrollbar">
             {loading ? (
-              <div className="text-center py-8 text-primary/30 text-xs">Memuat pesan...</div>
+              <div className="text-center py-10 text-primary/40 text-sm font-medium">Memuat pesan...</div>
             ) : messages.length === 0 ? (
-              <div className="text-center py-8 text-primary/30 text-xs">Belum ada pesan.</div>
+              <div className="text-center py-10 text-primary/40 text-sm font-medium">Belum ada pesan. Jadilah yang pertama!</div>
             ) : (
               messages.map((item, idx) => (
                 <motion.div
                   key={idx}
-                  initial={{ opacity: 0, x: -5 }}
+                  initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: idx * 0.03 }}
-                  className="p-3 bg-white rounded-lg border border-primary/6 shadow-sm"
+                  transition={{ delay: idx * 0.05 }}
+                  className="p-3 bg-white rounded-xl border border-primary/5 shadow-sm"
                 >
                   <div className="flex items-center justify-between mb-1.5">
                     <div className="flex items-center gap-2">
-                      <span className="text-xs text-primary font-semibold">{item.name}</span>
-                      <span className={`text-[9px] px-1.5 py-0.5 rounded font-medium ${item.attendance === 'Hadir' ? 'bg-green-50 text-green-600' : 'bg-red-50 text-red-500'}`}>
-                        {item.attendance === 'Hadir' ? 'Hadir' : 'Berhalangan'}
-                      </span>
+                      <div className="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-[10px] uppercase">
+                         {item.name.charAt(0)}
+                      </div>
+                      <span className="text-xs text-primary font-bold">{item.name}</span>
                     </div>
-                    <div className="text-[10px] text-primary/25 flex items-center gap-1">
+                    <div className="text-[9px] text-primary/30 flex items-center gap-1 font-medium">
                       <Clock size={10} />
                       {item.timestamp ? new Date(item.timestamp).toLocaleDateString('id-ID', { day: 'numeric', month: 'short' }) : 'Baru'}
                     </div>
                   </div>
-                  <p className="text-xs text-primary/50 leading-relaxed border-l-2 border-gold/15 pl-3">
-                    &ldquo;{item.message}&rdquo;
-                  </p>
+                  
+                  <div className="pl-8">
+                     <span className={`inline-block mb-1.5 text-[9px] px-2 py-0.5 rounded-md font-semibold ${item.attendance === 'Hadir' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-600'}`}>
+                        {item.attendance === 'Hadir' ? '✓ Hadir' : '× Berhalangan'}
+                     </span>
+                     <p className="text-xs text-primary/60 leading-relaxed italic">
+                        &ldquo;{item.message}&rdquo;
+                     </p>
+                  </div>
                 </motion.div>
               ))
             )}

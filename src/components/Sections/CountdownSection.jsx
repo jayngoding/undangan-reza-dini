@@ -41,7 +41,12 @@ const CountdownSection = () => {
         <p className="font-wedding-name text-2xl sm:text-3xl text-gold font-normal mb-1">
           Menghitung Hari
         </p>
-        <h2 className="text-lg text-primary font-semibold mb-6">Menuju Hari Bahagia</h2>
+        <h2 className="text-lg text-primary font-semibold">Menuju Hari Bahagia</h2>
+        <div className="flex items-center justify-center gap-2 mt-3 mb-6">
+          <div className="h-px w-10 bg-gold/30" />
+          <span className="text-gold/60 text-[10px]">⏳</span>
+          <div className="h-px w-10 bg-gold/30" />
+        </div>
   
         <div className="flex justify-center gap-2.5 mb-6">
           {items.map((item, idx) => (
