@@ -23,8 +23,10 @@ const GiftSection = () => {
         className="max-w-sm mx-auto relative z-10"
       >
         {/* Title */}
-        <p className="text-xs text-gold font-medium mb-1">Hadiah</p>
-        <h2 className="text-lg text-primary font-semibold mb-2">Kirim Tanda Kasih</h2>
+        <p className="font-wedding-name text-2xl sm:text-3xl text-gold font-normal mb-1">
+          Tanda Kasih
+        </p>
+        <h2 className="text-lg text-primary font-semibold mb-2">Kirim Hadiah</h2>
         <div className="w-10 h-px bg-gold/30 mx-auto mb-8" />
         
         <div className="space-y-4">
@@ -53,7 +55,7 @@ const GiftSection = () => {
               <motion.button
                 whileTap={{ scale: 0.97 }}
                 onClick={() => copyToClipboard(account.number)}
-                className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-primary text-white rounded-lg text-xs font-medium shadow-sm"
+                className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-primary text-white rounded-lg text-xs font-medium shadow-sm cursor-pointer"
               >
                 {copied === account.number ? <Check size={12} /> : <Copy size={12} />}
                 <span>{copied === account.number ? "Tersalin" : "Salin Nomor"}</span>

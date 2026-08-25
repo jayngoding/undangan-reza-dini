@@ -38,7 +38,9 @@ const CountdownSection = () => {
         transition={{ duration: 0.8 }}
         className="relative z-10"
       >
-        <p className="text-xs text-primary/40 font-medium mb-1">Menghitung Hari</p>
+        <p className="font-wedding-name text-2xl sm:text-3xl text-gold font-normal mb-1">
+          Menghitung Hari
+        </p>
         <h2 className="text-lg text-primary font-semibold mb-6">Menuju Hari Bahagia</h2>
   
         <div className="flex justify-center gap-2.5 mb-6">
@@ -48,8 +50,8 @@ const CountdownSection = () => {
               initial={{ y: 15, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ delay: idx * 0.08, duration: 0.5 }}
-              className="flex flex-col items-center justify-center bg-white rounded-lg shadow-sm border border-primary/6"
-              style={{ width: '4rem', minHeight: '4.5rem' }}
+              className="flex flex-col items-center justify-center bg-white rounded-xl shadow-sm border border-primary/8"
+              style={{ width: '4.2rem', minHeight: '4.8rem' }}
             >
               <span className="text-lg text-primary font-semibold">
                 {item.value.toString().padStart(2, '0')}

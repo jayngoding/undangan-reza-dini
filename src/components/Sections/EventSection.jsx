@@ -47,9 +47,11 @@ const EventSection = () => {
         transition={{ duration: 0.8 }}
         className="text-center mb-8 relative z-10"
       >
-        <p className="text-xs text-gold font-medium mb-1">Simpan Tanggal</p>
+        <p className="font-wedding-name text-2xl sm:text-3xl text-gold font-normal mb-1">
+          Simpan Tanggal
+        </p>
         <h2 className="text-lg text-primary font-semibold">Rangkaian Acara</h2>
-        <div className="w-10 h-px bg-gold/30 mx-auto mt-3" />
+        <div className="w-10 h-px bg-gold/30 mx-auto mt-2" />
       </motion.div>
   
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-lg md:max-w-3xl mx-auto relative z-10">

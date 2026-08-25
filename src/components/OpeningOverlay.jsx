@@ -8,6 +8,9 @@ const OpeningOverlay = ({ isOpen, onOpen, guestName }) => {
   const { groom, bride } = weddingData.couple;
   const cardRef = useRef(null);
 
+  const brideName = bride.nickname || bride.name;
+  const groomName = groom.nickname || groom.name;
+
   const handleOpen = () => {
     gsap.to(cardRef.current, {
       y: -20,
@@ -45,21 +48,17 @@ const OpeningOverlay = ({ isOpen, onOpen, guestName }) => {
             initial={{ opacity: 0, y: 25, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="relative z-10 w-full max-w-xs text-center bg-white/90 backdrop-blur-md rounded-2xl shadow-xl border border-white/40 px-6 py-8"
+            className="relative z-10 w-full max-w-sm text-center bg-white/90 backdrop-blur-md rounded-2xl shadow-xl border border-white/40 px-6 py-8"
           >
             {/* Label */}
             <p className="text-[11px] text-primary font-medium tracking-wide mb-3 uppercase">
               The Wedding Of
             </p>
 
-            {/* Names */}
-            <div className="space-y-0.5 mb-5">
-              <h1 className="text-2xl text-primary font-semibold leading-tight">
-                {bride.nickname || bride.name}
-              </h1>
-              <p className="text-base text-gold font-medium">&amp;</p>
-              <h1 className="text-2xl text-primary font-semibold leading-tight">
-                {groom.nickname || groom.name}
+            {/* Names on one single line with matching script font */}
+            <div className="my-4">
+              <h1 className="font-wedding-name text-4xl sm:text-5xl text-primary font-normal leading-tight">
+                {brideName} <span className="font-wedding-name text-gold mx-1.5">&amp;</span> {groomName}
               </h1>
             </div>
 

@@ -2,8 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, User, MessageSquare, Users2, Clock } from 'lucide-react';
 
-const RSVPSection = () => {
-  const [formData, setFormData] = useState({ name: '', message: '', attendance: 'Hadir', honey: '' });
+const RSVPSection = ({ guestName = '' }) => {
+  const [formData, setFormData] = useState({ 
+    name: guestName || '', 
+    message: '', 
+    attendance: 'Hadir', 
+    honey: '' 
+  });
   const [submitted, setSubmitted] = useState(false);
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -26,6 +31,15 @@ const RSVPSection = () => {
   useEffect(() => {
     fetchMessages();
   }, []);
+
+  useEffect(() => {
+    if (guestName) {
+      setFormData((prev) => ({
+        ...prev,
+        name: prev.name ? prev.name : guestName,
+      }));
+    }
+  }, [guestName]);
 
   const handleSubmit = async (e) => {
     e.preventDefault(); 
@@ -53,7 +67,7 @@ const RSVPSection = () => {
         body: JSON.stringify(payload),
       });
 
-      setFormData({ name: '', message: '', attendance: 'Hadir', honey: '' });
+      setFormData({ name: guestName || '', message: '', attendance: 'Hadir', honey: '' });
       setSubmitted(true);
       setTimeout(() => fetchMessages(), 1500);
       setTimeout(() => setSubmitted(false), 5000);
@@ -76,9 +90,11 @@ const RSVPSection = () => {
       >
         {/* Title */}
         <div className="text-center mb-8">
-          <p className="text-xs text-gold font-medium mb-1">Konfirmasi</p>
+          <p className="font-wedding-name text-2xl sm:text-3xl text-gold font-normal mb-1">
+            Kehadiran &amp; Doa
+          </p>
           <h2 className="text-lg text-primary font-semibold">Konfirmasi Kehadiran</h2>
-          <div className="w-10 h-px bg-gold/30 mx-auto mt-3" />
+          <div className="w-10 h-px bg-gold/30 mx-auto mt-2" />
         </div>
 
         {/* Form Card */}
@@ -88,10 +104,12 @@ const RSVPSection = () => {
             <div className="relative">
               <User size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-primary/30" />
               <input
-                type="text" required value={formData.name}
+                type="text" 
+                required 
+                value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 placeholder="Nama lengkap Anda"
-                className="w-full py-3 pl-9 pr-4 bg-primary/3 border border-primary/8 rounded-lg text-xs focus:outline-none focus:ring-1 focus:ring-gold/30 focus:border-gold/30 text-primary placeholder:text-primary/25 transition-all"
+                className="w-full py-3 pl-9 pr-4 bg-primary/3 border border-primary/8 rounded-lg text-xs focus:outline-none focus:ring-1 focus:ring-gold/30 focus:border-gold/30 text-primary placeholder:text-primary/25 transition-all font-medium"
               />
             </div>
  
@@ -129,7 +147,7 @@ const RSVPSection = () => {
               whileTap={{ scale: 0.97 }}
               type="submit" 
               disabled={isSubmitting}
-              className="w-full py-2.5 bg-primary text-white rounded-lg font-medium text-xs shadow-sm flex items-center justify-center gap-2 transition-all"
+              className="w-full py-2.5 bg-primary text-white rounded-lg font-medium text-xs shadow-sm flex items-center justify-center gap-2 transition-all cursor-pointer"
             >
               {isSubmitting ? (
                 <div className="w-4 h-4 border-2 border-white/20 border-t-white rounded-full animate-spin" />

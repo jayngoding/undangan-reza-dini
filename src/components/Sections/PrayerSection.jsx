@@ -3,31 +3,36 @@ import { motion } from 'framer-motion';
 import weddingData from '../../data/weddingData.json';
 
 const PrayerSection = () => {
-  const { prayer } = weddingData.quotes;
+  const { quotes } = weddingData;
+  if (!quotes || !quotes.prayer) return null;
+
+  const { prayer } = quotes;
 
   return (
-    <section className="section-padding flex-center text-center relative overflow-hidden bg-white/30">
+    <section className="section-padding flex-center text-center relative overflow-hidden bg-white/40 border-t border-primary/6">
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 0, y: 15 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
         className="max-w-md w-full relative z-10"
       >
-        <div className="bg-white rounded-xl shadow-sm border border-primary/6 px-5 py-8">
-          <p className="text-xs text-gold font-medium mb-4">Doa Pengantin</p>
+        <div className="bg-white rounded-2xl shadow-sm border border-primary/8 px-6 py-8">
+          <p className="font-wedding-name text-2xl sm:text-3xl text-gold font-normal mb-3">
+            Doa Pengantin
+          </p>
 
-          <h3 className="arabic-font text-xl sm:text-2xl text-primary font-semibold mb-6 leading-[2] px-2">
+          <p className="arabic-font text-base sm:text-lg text-primary font-medium leading-[2.2] mb-5 px-2">
             {prayer.arabic}
-          </h3>
-  
+          </p>
+
           <div className="w-10 h-px bg-gold/30 mx-auto mb-4" />
-  
-          <p className="text-primary/50 italic text-xs leading-relaxed mb-4 px-2">
+
+          <p className="text-xs text-primary/70 leading-relaxed italic mb-3 px-2">
             &ldquo;{prayer.translation}&rdquo;
           </p>
-  
-          <p className="text-gold font-medium text-[10px]">
+
+          <p className="text-[11px] text-gold font-semibold">
             {prayer.source}
           </p>
         </div>

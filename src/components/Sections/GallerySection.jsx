@@ -25,9 +25,11 @@ const GallerySection = () => {
           transition={{ duration: 0.7 }}
           className="mb-8"
         >
-          <p className="text-xs text-gold font-medium mb-1">Galeri</p>
-          <h2 className="text-lg text-primary font-semibold">Momen Bahagia</h2>
-          <div className="w-10 h-px bg-gold/30 mx-auto mt-3" />
+          <p className="font-wedding-name text-2xl sm:text-3xl text-gold font-normal mb-1">
+            Momen Bahagia
+          </p>
+          <h2 className="text-lg text-primary font-semibold">Galeri Foto</h2>
+          <div className="w-10 h-px bg-gold/30 mx-auto mt-2" />
         </motion.div>
 
         {/* Grid */}

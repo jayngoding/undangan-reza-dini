@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Amiri:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Poppins:wght@300;400;500;600;700;800&family=Amiri:wght@400;700&display=swap');
 @import "tailwindcss";
 @config "../tailwind.config.js";
 
@@ -11,9 +11,9 @@
   --color-text-dark: #2D1111;
   --color-text-light: #6B3A3A;
 
-  --font-serif: "Poppins", sans-serif;
+  --font-serif: "Playfair Display", serif;
   --font-sans: "Poppins", sans-serif;
-  --font-script: "Poppins", sans-serif;
+  --font-script: "Great Vibes", cursive;
   --font-arabic: "Amiri", serif;
 }
 
@@ -73,7 +73,9 @@ html {
 }
 
 @layer utilities {
-  .script-font { font-family: var(--font-script); }
+  .script-font { 
+    font-family: 'Great Vibes', cursive !important;
+  }
   .arabic-font {
     font-family: var(--font-arabic);
     direction: rtl;
@@ -159,7 +161,26 @@ html {
 .via-\[\#D4AF37\] { --tw-gradient-via: var(--gold) !important; }
 .to-\[\#B8860B\] { --tw-gradient-to: #8B1A1A !important; }
 
-/* Force Poppins globally */
-body, h1, h2, h3, h4, h5, h6, p, span, a, button, input, select, textarea, div {
+/* Force Poppins globally for body and general text */
+body, h2, h3, h4, h5, h6, p, span, a, button, input, select, textarea, div {
   font-family: 'Poppins', sans-serif !important;
+}
+
+/* Special wedding script calligraphy for names matching user's visual reference */
+.font-script, .font-wedding-name {
+  font-family: 'Great Vibes', cursive !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.02em;
+}
+
+.font-pinyon {
+  font-family: 'Pinyon Script', cursive !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+}
+
+.font-italic-serif {
+  font-family: 'Playfair Display', serif !important;
+  font-style: italic !important;
 }

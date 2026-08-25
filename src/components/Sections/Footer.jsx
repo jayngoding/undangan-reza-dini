@@ -19,12 +19,12 @@ const Footer = () => {
 
         <div className="w-10 h-px bg-gold/30 mx-auto mb-4" />
 
-        <p className="text-xs text-primary/40 font-medium mb-2">Terima Kasih</p>
+        <p className="text-xs text-primary/40 font-medium mb-1">Terima Kasih</p>
 
-        <h2 className="text-lg text-primary font-semibold mb-1">
-          {bride.name} &amp; {groom.name}
+        <h2 className="font-wedding-name text-3xl sm:text-4xl text-primary font-normal leading-tight mb-2">
+          {bride.name} <span className="font-wedding-name text-gold mx-1">&amp;</span> {groom.name}
         </h2>
-        <p className="text-[10px] text-primary/25">
+        <p className="text-[10px] text-primary/35 font-medium">
           Sampai jumpa di hari bahagia kami!
         </p>
       </motion.div>

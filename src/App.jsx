@@ -12,9 +12,9 @@ function App() {
   const [guestName, setGuestName] = useState('');
 
   useEffect(() => {
-    // Get guest name from URL if present (?to=Nama+Tamu)
+    // Get guest name from URL (?to=Nama+Tamu or ?nama=Nama+Tamu or ?guest=...)
     const params = new URLSearchParams(window.location.search);
-    const to = params.get('to');
+    const to = params.get('to') || params.get('nama') || params.get('guest') || params.get('n');
     if (to) {
       setGuestName(to.replace(/\+/g, ' '));
     }
@@ -23,13 +23,12 @@ function App() {
   const handleOpen = () => {
     setIsOpen(true);
     setIsPlaying(true);
-    // Add scroll lock if needed when closed, but here we just transition
     window.scrollTo(0, 0);
   };
 
   return (
     <div className="relative min-h-screen font-sans selection:bg-primary/20 overflow-x-hidden">
-      {/* Lightweight Islamic Background */}
+      {/* Lightweight Background */}
       <IslamicBackground isOpen={isOpen} />
 
       {/* Opening Overlay (Initially full screen, then disappears) */}
@@ -43,12 +42,12 @@ function App() {
       {isOpen && (
         <div className="relative z-10 flex flex-col lg:flex-row min-h-screen">
           <Sidebar />
-          <MainContent />
+          <MainContent guestName={guestName} />
           <MusicPlayer isPlaying={isPlaying} setIsPlaying={setIsPlaying} />
         </div>
       )}
       
-      {/* Mobile-only background overlay to make text readable if needed */}
+      {/* Mobile-only background overlay */}
       {isOpen && (
         <div className="fixed inset-0 z-[-1] bg-bg-cream/40 backdrop-blur-[1px] lg:hidden" />
       )}
