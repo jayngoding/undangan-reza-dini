@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Amiri:wght@400;700&display=swap');
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@theme {
+  --color-primary: #8B1A1A;
+  --color-primary-light: #A8403F;
+  --color-accent: #FFF8F0;
+  --color-gold: #C8973E;
+  --color-bg-cream: #FDF6EF;
+  --color-text-dark: #2D1111;
+  --color-text-light: #6B3A3A;
+
+  --font-serif: "Poppins", sans-serif;
+  --font-sans: "Poppins", sans-serif;
+  --font-script: "Poppins", sans-serif;
+  --font-arabic: "Amiri", serif;
+}
+
+:root {
+  color-scheme: light only;
+  --primary: #8B1A1A;
+  --primary-light: #A8403F;
+  --accent: #FFF8F0;
+  --gold: #C8973E;
+  --bg-cream: #FDF6EF;
+  --text-dark: #2D1111;
+  --text-light: #6B3A3A;
+  --white: #FFFFFF;
+}
+
+html {
+  color-scheme: light only;
+  background-color: #FDF6EF !important;
+  color: #2D1111 !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  html, body, #root {
+    background-color: #FDF6EF !important;
+    color: #2D1111 !important;
+    color-scheme: light only;
+  }
+}
+
+@layer base {
+  html, body {
+    background-color: var(--bg-cream, #FDF6EF) !important;
+    color: var(--text-dark, #2D1111) !important;
+    color-scheme: light only !important;
+  }
+  body {
+    background-color: var(--bg-cream) !important;
+    color: var(--text-dark) !important;
+    @apply font-sans overflow-x-hidden leading-relaxed text-sm;
+  }
+  h1 {
+    @apply text-xl font-semibold;
+    color: var(--primary);
+  }
+  h2 {
+    @apply text-lg font-semibold;
+    color: var(--primary);
+  }
+  h3 {
+    @apply text-base font-medium;
+    color: var(--primary);
+  }
+  h4 {
+    @apply text-sm font-medium;
+    color: var(--primary);
+  }
+}
+
+@layer utilities {
+  .script-font { font-family: var(--font-script); }
+  .arabic-font {
+    font-family: var(--font-arabic);
+    direction: rtl;
+  }
+  .glass {
+    @apply bg-white/60 backdrop-blur-md border border-white/30;
+  }
+  .section-padding {
+    @apply py-10 px-5 md:py-16 md:px-10;
+  }
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+  .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(139, 26, 26, 0.03);
+    border-radius: 10px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(139, 26, 26, 0.15);
+    border-radius: 10px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(139, 26, 26, 0.25);
+  }
+}
+
+/* ─── Subtle dot pattern ─── */
+.bg-denim-pattern {
+  background-color: var(--bg-cream);
+  background-image:
+    radial-gradient(circle at 2px 2px, rgba(139, 26, 26, 0.03) 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+.bg-islamic-pattern {
+  background-color: var(--bg-cream);
+  background-image:
+    radial-gradient(circle at 2px 2px, rgba(200, 151, 62, 0.04) 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+.mihrab-shape {
+  border-radius: 999px 999px 0 0;
+}
+
+.gold-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  opacity: 0.4;
+}
+.gold-divider::before,
+.gold-divider::after {
+  content: '';
+  flex: 1;
+  max-width: 32px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.bg-vignette {
+  background: radial-gradient(circle, transparent 30%, rgba(0,0,0,0.03) 100%);
+}
+
+.text-gradient-gold {
+  background: linear-gradient(to right, #C8973E, #E2B960);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ─── Legacy color overrides ─── */
+.text-\[\#D4AF37\] { color: var(--gold) !important; }
+.border-\[\#D4AF37\]\/40 { border-color: rgba(200, 151, 62, 0.4) !important; }
+.border-\[\#D4AF37\]\/30 { border-color: rgba(200, 151, 62, 0.3) !important; }
+.border-\[\#D4AF37\]\/20 { border-color: rgba(200, 151, 62, 0.2) !important; }
+.border-\[\#D4AF37\]\/10 { border-color: rgba(200, 151, 62, 0.1) !important; }
+.bg-\[\#D4AF37\]\/30 { background-color: rgba(200, 151, 62, 0.3) !important; }
+.bg-\[\#D4AF37\]\/10 { background-color: rgba(200, 151, 62, 0.1) !important; }
+.bg-\[\#D4AF37\]\/5 { background-color: rgba(200, 151, 62, 0.05) !important; }
+.from-\[\#B8860B\] { --tw-gradient-from: #8B1A1A !important; }
+.via-\[\#D4AF37\] { --tw-gradient-via: var(--gold) !important; }
+.to-\[\#B8860B\] { --tw-gradient-to: #8B1A1A !important; }
+
+/* Force Poppins globally */
+body, h1, h2, h3, h4, h5, h6, p, span, a, button, input, select, textarea, div {
+  font-family: 'Poppins', sans-serif !important;
+}

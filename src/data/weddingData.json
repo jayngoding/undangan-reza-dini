@@ -1,0 +1,74 @@
+{
+  "couple": {
+    "bride": {
+      "name": "Dini",
+      "fullName": "Dini Samrotul Solihah, A.Md.Kom.",
+      "parents": {
+        "father": "Alm. Bapak Oih Solihin",
+        "mother": "Ibu Idah Rosidah"
+      },
+      "instagram": "@dinisamrotul_"
+    },
+    "groom": {
+      "name": "Reza",
+      "fullName": "Sahit Taufik Ahmad Reza, A.Md.Kom.",
+      "parents": {
+        "father": "Alm. Bapak Syafnel",
+        "mother": "Ibu Hidayati"
+      },
+      "instagram": "@rezaahmad955"
+    }
+  },
+  "event": {
+    "date": "2026-12-06",
+    "dateFullText": "Minggu, 06 Desember 2026",
+    "akad": {
+      "time": "09.00 s/d Selesai",
+      "location": "Rumah Mempelai Wanita",
+      "address": "Jln Cigeureung Kp Paozan Rt/Rw 03/10 Kec Indihiang Kel Parakanyasag",
+      "googleMaps": "https://maps.app.goo.gl/qoiJQuk3RDZVynqN9"
+    },
+    "resepsi": {
+      "time": "11.00 - 14.00 WIB",
+      "location": "Rumah Mempelai Wanita",
+      "address": "Jln Cigeureung Kp Paozan Rt/Rw 03/10 Kec Indihiang Kel Parakanyasag",
+      "googleMaps": "https://maps.app.goo.gl/qoiJQuk3RDZVynqN9"
+    }
+  },
+  "gift": {
+    "accounts": [
+      {
+        "bank": "Bank BTN",
+        "number": "3401560045012",
+        "holder": "Dini Samrotul Solihah"
+      }
+    ]
+  },
+  "quotes": {
+    "verse": "وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَلِكَ لَآيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ",
+    "translation": "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir.",
+    "source": "QS. Ar-Rum : 21",
+    "prayer": {
+      "arabic": "بَارَكَ اللهُ لَكَ وَبَارَكَ عَلَيْكَ وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ",
+      "translation": "Semoga Allah memberkahimu di waktu bahagia dan memberkahimu di waktu susah, serta semoga Allah mempersatukan kalian berdua dalam kebaikan",
+      "source": "HR. Abu Dawud no. 2130"
+    }
+  },
+  "loveStory": [
+    {
+      "title": "PERTEMUAN",
+      "date": "2021",
+      "content": "Tidak ada yang terjadi secara kebetulan di dunia ini, semua sudah diatur dengan sangat indah dalam rencana-Nya. Kami tidak pernah menyangka bahwa pertemuan sederhana di masa perkuliahan pada tahun 2021 menjadi awal dari sebuah perjalanan panjang yang membawa kami sampai di titik ini."
+    },
+    {
+      "title": "PERJALANAN HUBUNGAN",
+      "date": "Februari 2026",
+      "content": "Seiring berjalannya waktu, kedekatan itu tumbuh dengan sendirinya yang membuat kami ingin mengenal lebih jauh. Perjalanan kami bukan tanpa ujian dan cerita. Namun, setiap proses yang dilewati justru membawa kami semakin yakin satu sama lain. Sampai pada akhirnya, Februari 2026 kami memutuskan untuk melangkah dalam sebuah ikatan yang penuh doa dan restu keluarga."
+    },
+    {
+      "title": "PERNIKAHAN",
+      "date": "06 Desember 2026",
+      "content": "Dan kini, tibalah kami pada babak baru kehidupan dua doa yang menyatu menjadi satu tujuan. Dengan penuh rasa syukur, kami memutuskan untuk mengikrarkan janji suci pernikahan pada 06 Desember 2026. Hari ini bukan akhir dari perjalanan kisah kami, melainkan halaman pertama dari kehidupan yang baru."
+    }
+  ]
+}
