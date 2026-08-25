@@ -26,7 +26,7 @@ const EventSection = () => {
       locationName: resepsi.location,
       address: resepsi.address,
       mapUrl: resepsi.googleMaps,
-      gradient: "from-[#C8973E] to-[#D4AA5C]"
+      gradient: "from-[#8B1A1A] to-[#A83232]"
     }
   ].filter(Boolean);
 
@@ -64,7 +64,7 @@ const EventSection = () => {
           <div className="h-px w-10 bg-gold/30" />
         </div>
       </motion.div>
-  
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-lg md:max-w-3xl mx-auto relative z-10">
         {events.map((event, idx) => (
           <motion.div
