@@ -3,9 +3,32 @@ import { motion } from 'framer-motion';
 import { Copy, Check } from 'lucide-react';
 import weddingData from '../../data/weddingData.json';
 
+const getBankLogo = (bankName) => {
+  const name = (bankName || '').toLowerCase();
+  if (name.includes('btn')) {
+    return (
+      <img
+        src="/btn.svg"
+        alt="Logo Bank BTN"
+        className="h-8 max-w-[120px] object-contain"
+      />
+    );
+  }
+  if (name.includes('bca')) {
+    return (
+      <img
+        src="/bca.svg"
+        alt="Logo Bank BCA"
+        className="h-8 max-w-[110px] object-contain"
+      />
+    );
+  }
+  return <span className="text-base font-bold text-primary">{bankName}</span>;
+};
+
 const GiftSection = () => {
   const [copied, setCopied] = useState('');
-  const giftAccounts = weddingData.gift.accounts;
+  const giftAccounts = weddingData.gift.accounts || [];
 
   const copyToClipboard = (text) => {
     navigator.clipboard.writeText(text);
@@ -37,28 +60,31 @@ const GiftSection = () => {
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.15, duration: 0.6 }}
-              className="bg-white rounded-xl shadow-sm border border-primary/6 p-5"
+              className="bg-white rounded-2xl shadow-sm border border-primary/8 p-5 flex flex-col items-center"
             >
-              <h3 className="text-sm text-primary font-semibold mb-3">
-                {account.bank}
-              </h3>
+              {/* Official Bank Logo from public/ */}
+              <div className="mb-4 flex items-center justify-center h-9">
+                {getBankLogo(account.bank)}
+              </div>
 
-              <div className="bg-primary/4 rounded-lg border border-primary/6 py-3 px-4 mb-3">
-                <p className="text-sm text-primary font-semibold tracking-wide mb-0.5">
+              {/* Account Number Box */}
+              <div className="w-full bg-primary/4 rounded-xl border border-primary/8 py-3.5 px-4 mb-3.5 text-center">
+                <p className="text-base font-semibold text-primary tracking-wider mb-0.5 font-mono">
                   {account.number}
                 </p>
-                <p className="text-[10px] text-primary/40 font-medium">
+                <p className="text-[11px] text-primary/50 font-medium">
                   a.n {account.holder}
                 </p>
               </div>
 
+              {/* Copy Button */}
               <motion.button
                 whileTap={{ scale: 0.97 }}
                 onClick={() => copyToClipboard(account.number)}
-                className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-primary text-white rounded-lg text-xs font-medium shadow-sm cursor-pointer"
+                className="inline-flex items-center gap-1.5 px-5 py-2 bg-primary text-white rounded-xl text-xs font-semibold shadow-sm shadow-primary/10 hover:bg-primary-light transition-all cursor-pointer"
               >
-                {copied === account.number ? <Check size={12} /> : <Copy size={12} />}
-                <span>{copied === account.number ? "Tersalin" : "Salin Nomor"}</span>
+                {copied === account.number ? <Check size={13} /> : <Copy size={13} />}
+                <span>{copied === account.number ? "Nomor Tersalin" : "Salin No. Rekening"}</span>
               </motion.button>
             </motion.div>
           ))}
