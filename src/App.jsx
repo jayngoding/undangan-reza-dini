@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import IslamicBackground from './components/IslamicBackground';
 import OpeningOverlay from './components/OpeningOverlay';
 import Sidebar from './components/Sidebar';
@@ -9,16 +9,12 @@ import './index.css';
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [guestName, setGuestName] = useState('');
-
-  useEffect(() => {
-    // Get guest name from URL (?to=Nama+Tamu or ?nama=Nama+Tamu or ?guest=...)
+  // Nama tamu dari URL (?to=Nama+Tamu / ?nama= / ?guest= / ?n=) — statis per muat halaman
+  const [guestName] = useState(() => {
     const params = new URLSearchParams(window.location.search);
     const to = params.get('to') || params.get('nama') || params.get('guest') || params.get('n');
-    if (to) {
-      setGuestName(to.replace(/\+/g, ' '));
-    }
-  }, []);
+    return to ? to.replace(/\+/g, ' ') : '';
+  });
 
   const handleOpen = () => {
     setIsOpen(true);
@@ -49,7 +45,7 @@ function App() {
       
       {/* Mobile-only background overlay */}
       {isOpen && (
-        <div className="fixed inset-0 z-[-1] bg-bg-cream/40 backdrop-blur-[1px] lg:hidden" />
+        <div className="fixed inset-0 z-[-1] bg-bg-cream/45 backdrop-blur-[1px] lg:hidden" />
       )}
     </div>
   );

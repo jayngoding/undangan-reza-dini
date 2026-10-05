@@ -28,50 +28,67 @@ const OpeningOverlay = ({ isOpen, onOpen, guestName }) => {
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, transition: { duration: 0.4 } }}
-          className="fixed inset-0 z-[100] flex items-center justify-center p-5 overflow-hidden"
+          className="fixed inset-0 z-[100] flex items-center justify-center p-5 overflow-hidden bg-primary-dark"
           style={{ willChange: 'opacity' }}
         >
-          {/* Full background image */}
+          {/* Full background photo */}
           <div className="absolute inset-0">
             <img
-              src="/cover_bg.jpg"
-              alt="Background Cover"
-              className="w-full h-full object-cover object-center"
+              src="/foto_5.jpeg"
+              alt="Reza & Dini"
+              className="w-full h-full object-cover object-[50%_32%]"
             />
-            {/* Gradient overlay for readability */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/75" />
+            {/* Maroon gradient overlay for readability */}
+            <div className="absolute inset-0 bg-gradient-to-b from-primary-dark/75 via-primary-dark/45 to-primary-dark/90" />
+            {/* Subtle gold vignette at edges */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  'radial-gradient(ellipse at center, transparent 55%, rgba(72, 13, 24, 0.55) 100%)',
+              }}
+            />
           </div>
 
-          {/* Clean glass card */}
+          {/* Elegant maroon glass card */}
           <motion.div
             ref={cardRef}
             initial={{ opacity: 0, y: 25, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="relative z-10 w-full max-w-sm text-center bg-white/90 backdrop-blur-md rounded-2xl shadow-xl border border-white/40 px-6 py-8"
+            className="relative z-10 w-full max-w-sm text-center bg-primary-dark/60 backdrop-blur-md rounded-3xl shadow-2xl border border-gold/35 px-6 py-8 sm:px-8 sm:py-10"
           >
             {/* Label */}
-            <p className="text-[11px] text-primary font-medium tracking-wide mb-3 uppercase">
+            <p className="text-[10px] text-gold-light font-medium tracking-[0.3em] mb-4 uppercase">
               The Wedding Of
             </p>
 
-            {/* Names on one single line with matching script font */}
-            <div className="my-4">
-              <h1 className="font-wedding-name text-4xl sm:text-5xl text-primary font-normal leading-tight">
-                {brideName} <span className="font-wedding-name text-gold mx-1.5">&amp;</span> {groomName}
+            {/* Names */}
+            <div className="my-5">
+              <h1 className="font-wedding-name text-4xl sm:text-6xl text-accent font-normal leading-[1.15]">
+                {brideName} <span className="text-gold mx-1">&amp;</span> {groomName}
               </h1>
             </div>
 
+            {/* Divider */}
+            <div className="flex items-center justify-center gap-3 mb-5">
+              <div className="h-px w-14 bg-gradient-to-r from-transparent to-gold/70" />
+              <span className="block w-1.5 h-1.5 rotate-45 bg-gold" />
+              <div className="h-px w-14 bg-gradient-to-l from-transparent to-gold/70" />
+            </div>
+
             {/* Date */}
-            <p className="text-xs text-primary/70 font-medium mb-6">
+            <p className="text-xs text-accent/85 font-medium tracking-wider mb-7">
               {weddingData.event.dateFullText}
             </p>
 
             {/* Guest */}
-            <div className="mb-6">
-              <div className="bg-primary/5 border border-primary/10 rounded-xl inline-block px-4 py-2.5 min-w-[160px]">
-                <p className="text-primary/50 text-[10px] mb-0.5">Kepada Yth.</p>
-                <p className="text-sm text-primary font-semibold">
+            <div className="mb-7">
+              <div className="border border-gold/30 bg-white/5 rounded-xl inline-block px-5 py-3 min-w-[190px]">
+                <p className="text-gold-light/75 text-[9px] tracking-[0.25em] uppercase mb-1">
+                  Kepada Yth.
+                </p>
+                <p className="text-sm text-accent font-semibold leading-snug">
                   {guestName || 'Tamu Undangan'}
                 </p>
               </div>
@@ -82,7 +99,7 @@ const OpeningOverlay = ({ isOpen, onOpen, guestName }) => {
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               onClick={handleOpen}
-              className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl bg-primary text-white text-xs font-semibold shadow-md shadow-primary/20 hover:bg-primary-light transition-all cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-gold-light to-gold text-primary-dark text-[11px] font-bold tracking-wide shadow-lg shadow-black/25 hover:brightness-105 transition-all cursor-pointer sm:px-7 sm:py-3 sm:text-xs"
             >
               <MailOpen size={14} />
               <span>Buka Undangan</span>

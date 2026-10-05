@@ -23,7 +23,9 @@ export default defineConfig([
       },
     },
     rules: {
-      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+      // `motion` hanya dipakai sebagai <motion.div> (JSX member expression) yang
+      // tidak terlacak oleh no-unused-vars core, jadi dikecualikan di sini.
+      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]|^motion$', argsIgnorePattern: '^_' }],
     },
   },
 ])

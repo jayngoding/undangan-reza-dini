@@ -3,13 +3,17 @@
 @config "../tailwind.config.js";
 
 @theme {
-  --color-primary: #8B1A1A;
-  --color-primary-light: #A8403F;
-  --color-accent: #FFF8F0;
-  --color-gold: #C8973E;
-  --color-bg-cream: #FDF6EF;
-  --color-text-dark: #2D1111;
-  --color-text-light: #6B3A3A;
+  /* ── Maroon & Champagne Gold palette ── */
+  --color-primary: #6D1120;
+  --color-primary-dark: #480D18;
+  --color-primary-light: #8C2536;
+  --color-accent: #FDF8F2;
+  --color-gold: #C5A059;
+  --color-gold-light: #E6CFA0;
+  --color-gold-deep: #96762F;
+  --color-bg-cream: #FAF5EF;
+  --color-text-dark: #2F1219;
+  --color-text-light: #7C4A55;
 
   --font-serif: "Playfair Display", serif;
   --font-sans: "Poppins", sans-serif;
@@ -19,34 +23,36 @@
 
 :root {
   color-scheme: light only;
-  --primary: #8B1A1A;
-  --primary-light: #A8403F;
-  --accent: #FFF8F0;
-  --gold: #C8973E;
-  --bg-cream: #FDF6EF;
-  --text-dark: #2D1111;
-  --text-light: #6B3A3A;
+  --primary: #6D1120;
+  --primary-dark: #480D18;
+  --primary-light: #8C2536;
+  --accent: #FDF8F2;
+  --gold: #C5A059;
+  --gold-light: #E6CFA0;
+  --bg-cream: #FAF5EF;
+  --text-dark: #2F1219;
+  --text-light: #7C4A55;
   --white: #FFFFFF;
 }
 
 html {
   color-scheme: light only;
-  background-color: #FDF6EF !important;
-  color: #2D1111 !important;
+  background-color: #FAF5EF !important;
+  color: #2F1219 !important;
 }
 
 @media (prefers-color-scheme: dark) {
   html, body, #root {
-    background-color: #FDF6EF !important;
-    color: #2D1111 !important;
+    background-color: #FAF5EF !important;
+    color: #2F1219 !important;
     color-scheme: light only;
   }
 }
 
 @layer base {
   html, body {
-    background-color: var(--bg-cream, #FDF6EF) !important;
-    color: var(--text-dark, #2D1111) !important;
+    background-color: var(--bg-cream, #FAF5EF) !important;
+    color: var(--text-dark, #2F1219) !important;
     color-scheme: light only !important;
   }
   body {
@@ -54,68 +60,62 @@ html {
     color: var(--text-dark) !important;
     @apply font-sans overflow-x-hidden leading-relaxed text-sm;
   }
-  h1 {
-    @apply text-xl font-semibold;
+  h1, h2, h3, h4 {
+    @apply font-serif;
     color: var(--primary);
   }
-  h2 {
-    @apply text-lg font-semibold;
-    color: var(--primary);
-  }
-  h3 {
-    @apply text-base font-medium;
-    color: var(--primary);
-  }
-  h4 {
-    @apply text-sm font-medium;
-    color: var(--primary);
-  }
+  h1 { @apply text-xl font-semibold; }
+  h2 { @apply text-lg font-semibold; }
+  h3 { @apply text-base font-medium; }
+  h4 { @apply text-sm font-medium; }
 }
 
 @layer utilities {
-  .script-font { 
+  .script-font {
     font-family: 'Great Vibes', cursive !important;
   }
   .arabic-font {
     font-family: var(--font-arabic);
     direction: rtl;
   }
-  .glass {
-    @apply bg-white/60 backdrop-blur-md border border-white/30;
-  }
   .section-padding {
-    @apply py-10 px-5 md:py-16 md:px-10;
+    @apply py-12 px-5 md:py-16 md:px-10;
   }
   .flex-center {
     @apply flex items-center justify-center;
   }
   .custom-scrollbar::-webkit-scrollbar { width: 4px; }
   .custom-scrollbar::-webkit-scrollbar-track {
-    background: rgba(139, 26, 26, 0.03);
+    background: rgba(109, 17, 32, 0.04);
     border-radius: 10px;
   }
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: rgba(139, 26, 26, 0.15);
+    background: rgba(109, 17, 32, 0.18);
     border-radius: 10px;
   }
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: rgba(139, 26, 26, 0.25);
+    background: rgba(109, 17, 32, 0.3);
+  }
+  /* Elegant gold hairline frame for cards */
+  .gold-frame {
+    @apply border border-gold/25;
+    box-shadow: inset 0 0 0 1px rgba(197, 160, 89, 0.12);
   }
 }
 
-/* ─── Subtle dot pattern ─── */
-.bg-denim-pattern {
-  background-color: var(--bg-cream);
-  background-image:
-    radial-gradient(circle at 2px 2px, rgba(139, 26, 26, 0.03) 1px, transparent 0);
-  background-size: 20px 20px;
-}
-
+/* ─── Subtle patterns ─── */
 .bg-islamic-pattern {
   background-color: var(--bg-cream);
   background-image:
-    radial-gradient(circle at 2px 2px, rgba(200, 151, 62, 0.04) 1px, transparent 0);
-  background-size: 20px 20px;
+    radial-gradient(circle at 2px 2px, rgba(197, 160, 89, 0.06) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+
+/* Dot pattern for dark maroon sections */
+.maroon-pattern {
+  background-image:
+    radial-gradient(circle at 1.5px 1.5px, rgba(230, 207, 160, 0.08) 1.5px, transparent 0);
+  background-size: 24px 24px;
 }
 
 .mihrab-shape {
@@ -127,7 +127,7 @@ html {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  opacity: 0.4;
+  opacity: 0.55;
 }
 .gold-divider::before,
 .gold-divider::after {
@@ -138,35 +138,13 @@ html {
   background: var(--gold);
 }
 
-.bg-vignette {
-  background: radial-gradient(circle, transparent 30%, rgba(0,0,0,0.03) 100%);
-}
-
 .text-gradient-gold {
-  background: linear-gradient(to right, #C8973E, #E2B960);
+  background: linear-gradient(to right, #C5A059, #E6CFA0);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* ─── Legacy color overrides ─── */
-.text-\[\#D4AF37\] { color: var(--gold) !important; }
-.border-\[\#D4AF37\]\/40 { border-color: rgba(200, 151, 62, 0.4) !important; }
-.border-\[\#D4AF37\]\/30 { border-color: rgba(200, 151, 62, 0.3) !important; }
-.border-\[\#D4AF37\]\/20 { border-color: rgba(200, 151, 62, 0.2) !important; }
-.border-\[\#D4AF37\]\/10 { border-color: rgba(200, 151, 62, 0.1) !important; }
-.bg-\[\#D4AF37\]\/30 { background-color: rgba(200, 151, 62, 0.3) !important; }
-.bg-\[\#D4AF37\]\/10 { background-color: rgba(200, 151, 62, 0.1) !important; }
-.bg-\[\#D4AF37\]\/5 { background-color: rgba(200, 151, 62, 0.05) !important; }
-.from-\[\#B8860B\] { --tw-gradient-from: #8B1A1A !important; }
-.via-\[\#D4AF37\] { --tw-gradient-via: var(--gold) !important; }
-.to-\[\#B8860B\] { --tw-gradient-to: #8B1A1A !important; }
-
-/* Force Poppins globally for body and general text */
-body, h2, h3, h4, h5, h6, p, span, a, button, input, select, textarea, div {
-  font-family: 'Poppins', sans-serif !important;
-}
-
-/* Special wedding script calligraphy for names matching user's visual reference */
+/* ─── Wedding script calligraphy for names ─── */
 .font-script, .font-wedding-name {
   font-family: 'Great Vibes', cursive !important;
   font-style: normal !important;

@@ -41,30 +41,30 @@ export const ArabesqueCorner = ({ className }) => (
 
 export const GoldDivider = ({ className = '' }) => (
   <div className={`gold-divider ${className}`}>
-    <div className="w-1 h-1 rounded-full bg-[#D4AF37] mx-1" />
-    <svg viewBox="0 0 24 24" className="w-5 h-5 text-[#D4AF37]" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <div className="w-1 h-1 rounded-full bg-[#C5A059] mx-1" />
+    <svg viewBox="0 0 24 24" className="w-5 h-5 text-[#C5A059]" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M12 2 C12 2, 16 6, 16 10 C16 13, 14 15, 12 15 C10 15, 8 13, 8 10 C8 6, 12 2, 12 2 Z" fill="currentColor" fillOpacity="0.15" />
       <path d="M12 15 V22" strokeLinecap="round" />
     </svg>
-    <div className="w-1 h-1 rounded-full bg-[#D4AF37] mx-1" />
+    <div className="w-1 h-1 rounded-full bg-[#C5A059] mx-1" />
   </div>
 );
 
 export const IslamicCard = ({ children, className = '', style = {} }) => (
   <div
-    className={`relative bg-white/80 backdrop-blur-md border border-[#D4AF37]/20 rounded-xl overflow-hidden shadow-md ${className}`}
+    className={`relative bg-white/80 backdrop-blur-md border border-[#C5A059]/20 rounded-xl overflow-hidden shadow-md ${className}`}
     style={style}
   >
-    <ArabesqueCorner className="absolute top-3 left-3 w-6 h-6 text-[#D4AF37]/40" />
-    <ArabesqueCorner className="absolute top-3 right-3 w-6 h-6 text-[#D4AF37]/40 scale-x-[-1]" />
-    <ArabesqueCorner className="absolute bottom-3 left-3 w-6 h-6 text-[#D4AF37]/40 scale-y-[-1]" />
-    <ArabesqueCorner className="absolute bottom-3 right-3 w-6 h-6 text-[#D4AF37]/40 scale-[-1]" />
+    <ArabesqueCorner className="absolute top-3 left-3 w-6 h-6 text-[#C5A059]/40" />
+    <ArabesqueCorner className="absolute top-3 right-3 w-6 h-6 text-[#C5A059]/40 scale-x-[-1]" />
+    <ArabesqueCorner className="absolute bottom-3 left-3 w-6 h-6 text-[#C5A059]/40 scale-y-[-1]" />
+    <ArabesqueCorner className="absolute bottom-3 right-3 w-6 h-6 text-[#C5A059]/40 scale-[-1]" />
     {children}
   </div>
 );
 
 /* ── Minimalist Aesthetic Blob/Arch (Replaces Mosque Dome) ── */
-export const MosqueDome = ({ className = '', color = '#D4AF37' }) => (
+export const MosqueDome = ({ className = '', color = '#C5A059' }) => (
   <svg viewBox="0 0 200 150" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
     {/* Abstract arched lines */}
     <path 
@@ -85,7 +85,7 @@ export const MosqueDome = ({ className = '', color = '#D4AF37' }) => (
 );
 
 /* ── Minimalist Outline Arch (Replaces traditional Islamic Arch) ── */
-export const IslamicArch = ({ className = '', color = '#D4AF37' }) => (
+export const IslamicArch = ({ className = '', color = '#C5A059' }) => (
   <svg viewBox="0 0 100 150" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
     <path 
       d="M15 150 V50 C15 25, 30 15, 50 15 C70 15, 85 25, 85 50 V150" 
