@@ -5,6 +5,19 @@ import { Music, Music2 } from 'lucide-react';
 const MusicPlayer = ({ isPlaying, setIsPlaying }) => {
   const audioRef = useRef(null);
   const wasPlayingBeforeHidden = useRef(false);
+  const MAX_PLAY_TIME = 80; // 1 menit 20 detik (1:20)
+
+  // Batasi pemutaran hanya dari detik 0 sampai 1:20, lalu ulang ke awal
+  const handleTimeUpdate = () => {
+    if (audioRef.current && audioRef.current.currentTime >= MAX_PLAY_TIME) {
+      audioRef.current.currentTime = 0;
+      if (isPlaying && audioRef.current.paused) {
+        audioRef.current.play().catch((e) => {
+          console.warn("Loop audio play error:", e);
+        });
+      }
+    }
+  };
 
   // Handle play / pause based on isPlaying state
   useEffect(() => {
@@ -69,6 +82,7 @@ const MusicPlayer = ({ isPlaying, setIsPlaying }) => {
         loop 
         preload="auto"
         src="/audio.mp3" 
+        onTimeUpdate={handleTimeUpdate}
       />
       <motion.button
         whileHover={{ scale: 1.08 }}
