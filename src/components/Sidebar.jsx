@@ -14,7 +14,7 @@ const Sidebar = () => {
       {/* Background photo */}
       <div className="absolute inset-0">
         <img
-          src="/foto_2.jpeg"
+          src="/foto_5.jpeg"
           alt="Reza & Dini"
           className="w-full h-full object-cover object-[50%_32%]"
         />
@@ -58,9 +58,6 @@ const Sidebar = () => {
         <div className="space-y-1">
           <p className="text-sm text-accent font-semibold tracking-wide">
             {dateFullText}
-          </p>
-          <p className="text-[10px] text-gold-light font-medium tracking-[0.25em] uppercase">
-            Simpan Tanggal
           </p>
         </div>
       </motion.div>

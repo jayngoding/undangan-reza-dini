@@ -9,7 +9,7 @@ const GallerySection = () => {
 
   const images = [
     { src: '/foto_1.jpeg', alt: 'Momen Bahagia 1' },
-    { src: '/foto_2.jpeg', alt: 'Momen Bahagia 2' },
+    { src: '/foto_5.jpeg', alt: 'Momen Bahagia 2' },
     { src: '/foto_3.jpeg', alt: 'Momen Bahagia 3' },
     { src: '/foto_4.jpeg', alt: 'Momen Bahagia 4' },
     { src: '/foto_5.jpeg', alt: 'Momen Bahagia 5' },
@@ -87,52 +87,52 @@ const GallerySection = () => {
           onClick={() => setSelectedIndex(null)}
           className="fixed inset-0 z-[150] w-full h-full bg-primary-dark/95 backdrop-blur-sm flex items-center justify-center p-4 cursor-zoom-out"
         >
-            {/* Close button */}
-            <button
-              onClick={() => setSelectedIndex(null)}
-              className="absolute top-5 right-5 text-accent/80 hover:text-white p-2.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 transition-colors z-[160]"
-            >
-              <X size={20} />
-            </button>
+          {/* Close button */}
+          <button
+            onClick={() => setSelectedIndex(null)}
+            className="absolute top-5 right-5 text-accent/80 hover:text-white p-2.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 transition-colors z-[160]"
+          >
+            <X size={20} />
+          </button>
 
-            {/* Prev button */}
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                setSelectedIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-              }}
-              className="absolute left-2 sm:left-5 text-accent/80 hover:text-white p-2.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 transition-colors z-[160]"
-            >
-              <ChevronLeft size={24} />
-            </button>
+          {/* Prev button */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setSelectedIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+            }}
+            className="absolute left-2 sm:left-5 text-accent/80 hover:text-white p-2.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 transition-colors z-[160]"
+          >
+            <ChevronLeft size={24} />
+          </button>
 
-            {/* Image */}
-            <motion.img
-              key={selectedIndex}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.2 }}
-              src={images[selectedIndex].src}
-              alt={images[selectedIndex].alt}
-              className="max-w-[90vw] sm:max-w-full max-h-[85vh] object-contain rounded-2xl shadow-2xl relative z-[155] m-auto border border-gold/25"
-              onClick={(e) => {
-                e.stopPropagation();
-                setSelectedIndex(null);
-              }}
-            />
+          {/* Image */}
+          <motion.img
+            key={selectedIndex}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+            src={images[selectedIndex].src}
+            alt={images[selectedIndex].alt}
+            className="max-w-[90vw] sm:max-w-full max-h-[85vh] object-contain rounded-2xl shadow-2xl relative z-[155] m-auto border border-gold/25"
+            onClick={(e) => {
+              e.stopPropagation();
+              setSelectedIndex(null);
+            }}
+          />
 
-            {/* Next button */}
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                setSelectedIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-              }}
-              className="absolute right-2 sm:right-5 text-accent/80 hover:text-white p-2.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 transition-colors z-[160]"
-            >
-              <ChevronRight size={24} />
-            </button>
-          </motion.div>,
+          {/* Next button */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setSelectedIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+            }}
+            className="absolute right-2 sm:right-5 text-accent/80 hover:text-white p-2.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 transition-colors z-[160]"
+          >
+            <ChevronRight size={24} />
+          </button>
+        </motion.div>,
         document.body
       )}
     </section>

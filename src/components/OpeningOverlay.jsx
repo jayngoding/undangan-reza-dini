@@ -34,7 +34,7 @@ const OpeningOverlay = ({ isOpen, onOpen, guestName }) => {
           {/* Full background photo */}
           <div className="absolute inset-0">
             <img
-              src="/foto_2.jpeg"
+              src="/foto_5.jpeg"
               alt="Reza & Dini"
               className="w-full h-full object-cover object-[50%_32%]"
             />
