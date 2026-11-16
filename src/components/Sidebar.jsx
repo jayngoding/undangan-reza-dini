@@ -14,7 +14,7 @@ const Sidebar = () => {
       {/* Background photo */}
       <div className="absolute inset-0">
         <img
-          src="/foto_5.jpeg"
+          src="/foto_2.jpeg"
           alt="Reza & Dini"
           className="w-full h-full object-cover object-[50%_32%]"
         />
